@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prontuario', function (Blueprint $table) {
+        Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
-            $table->string('num_prontuario');
-            $table->dateTime('dt_criacao');
-            $table->dateTime('dt_atualizacao');
-            $table->longText('observacoes');
-            $table->unsignedBigInteger('criado_por');
-            $table->unsignedBigInteger('id_paciente');
+            $table->string('nome_completo');
+            $table->string('nome_mae');
+            $table->string('nome_pai');
+            $table->string('cns');
+            $table->string('genero');
+            $table->dateTime('data_nasc');
+            $table->string('cpf');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prontuario');
+        Schema::dropIfExists('pacientes');
     }
 };
