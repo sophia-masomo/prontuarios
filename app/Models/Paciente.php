@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Paciente extends Model
 {
@@ -18,4 +19,9 @@ class Paciente extends Model
         'data_nasc',
         'cpf',
     ];
+
+    public function contatos(): HasMany
+    {
+        return $this->hasMany(Contato::class, 'id_paciente', 'id');
+    }
 }
