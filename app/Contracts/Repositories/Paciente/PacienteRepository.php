@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Repositories\Paciente;
 
-//use App\Interfaces\PacienteRepositoryInterface;
+use App\Interfaces\PacienteRepositoryInterface;
 use App\Models\Paciente;
 
 class PacienteRepository implements PacienteRepositoryInterface
