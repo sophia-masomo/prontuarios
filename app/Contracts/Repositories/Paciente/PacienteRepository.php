@@ -7,6 +7,7 @@ use App\Models\Paciente;
 
 class PacienteRepository implements PacienteRepositoryInterface
 {
+        //salvar
     public function store(Request $request) {
         $paciente = new Paciente;
 
@@ -17,15 +18,22 @@ class PacienteRepository implements PacienteRepositoryInterface
         $paciente->genero = $request->genero;
         $paciente->data_nasc = $request->data_nasc;
         $paciente->cpf = $request->cpf;
+        $paciente->contato = $request->contato;
 
         $paciente->save();
     }
 
-    /*public function update() {
-
+        //atualizar
+    public function update($id, array $dado)
+    {
+        $paciente = Paciente::findOrFail($id);
+        $paciente->update($dado);
+        return $paciente;
     }
 
-    public function porld() {
-
-    }*/
+        //porld
+    public function porld($id)
+    {
+        return Paciente::findOrFail($id);
+    }
 } 
