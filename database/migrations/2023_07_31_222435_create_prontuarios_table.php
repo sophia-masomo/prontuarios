@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('observacoes');
             $table->unsignedBigInteger('criado_por');
             $table->unsignedBigInteger('id_paciente');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
