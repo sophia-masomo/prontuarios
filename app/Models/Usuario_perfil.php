@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Usuario_perfil extends Model
 {
@@ -15,4 +16,9 @@ class Usuario_perfil extends Model
         'id_perfil',
         'id_usuario',
     ];
+
+    public function perfil(): BelongsTo
+    {
+        return $this->belongsTo(Perfil::class);
+    }
 }

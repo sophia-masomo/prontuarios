@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Prontuario extends Model
 {
@@ -16,4 +17,9 @@ class Prontuario extends Model
         'dt_atualizacao',
         'dt_exclusao',
     ];
+
+    public function paciente(): BelongsTo
+    {
+        return $this->belongsTo(Paciente::class);
+    }
 }
